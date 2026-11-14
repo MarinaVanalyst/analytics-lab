@@ -6,21 +6,16 @@
   <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>Tracking guide | Marina V. Analytics Lab</title>
-  <meta name="description" content="Marina V., digital marketer moving into data analytics. Projects in GA4, Google Tag Manager, SQL and Python.">
+  <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
 
-  <!-- Page data for GTM. Read it with a Data Layer Variable called page_type. -->
+  <!-- The dataLayer: the website writes information here, and GTM reads it later.
+       It does nothing until GTM is installed. LESSON 3 explains it. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ page_type: 'article' });
   </script>
 
-  <!-- Google Tag Manager. Change GTM-XXXXXXX to your container ID. -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <!-- End Google Tag Manager -->
+  <!-- LESSON 1: paste the first Google Tag Manager code (the <head> code) here. -->
 
   <!-- Font: Public Sans from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,10 +24,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Google Tag Manager (noscript). Change GTM-XXXXXXX to your container ID. -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <!-- LESSON 1: paste the second Google Tag Manager code (the <body> code) here. -->
 
   <header>
     <div class="bar">
@@ -52,48 +44,91 @@
 
   <main>
     <h1>How I track this website</h1>
-    <p class="lead">A short guide to the method. This is also a long page, so I can test scroll depth tracking.</p>
+    <p class="lead">These are the steps that I follow on this practice site. I wrote them down to learn the method. This is also a long page, so I use it to test scroll depth tracking.</p>
+    <!-- VIDEO (removed until I choose a video)
+         To add a YouTube video for video tracking practice:
+         1. Find a video on YouTube. Click "Share", then "Embed", and check that embedding is allowed.
+         2. Copy the video ID: the part after "v=" in the address.
+         3. Remove the comment marks around the block below, and change VIDEO_ID to your ID.
+
     <h2>Watch: an introduction</h2>
-    <!-- Change VIDEO_ID to the ID of a YouTube video. The ID is the part after "v=" in the YouTube address. -->
     <div class="video-wrap"><div class="video">
       <iframe src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1" title="Introduction video" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
     </div></div>
+    -->
     <div class="steps">
     <section class="long-section">
-      <h2>Start with business questions</h2>
-      <p>Do not start with tags. Start with the questions that the business must answer. For example: which channels bring people who contact us? Each question becomes one or more events.</p>
-      <p>Take your time with this step. Write down what you see in GTM Preview mode and in GA4 DebugView. Compare it with your tracking plan. If they are not the same, fix the tag before you continue.</p>
+      <h2>I start with a question</h2>
+      <p>Before I make a tag or a report, I write down what I want to know. A specific question gets a useful answer. "Do visitors who read the guide also send the contact form?" is better than "How is the site doing?".</p>
+      <p>I ask these questions:</p>
+      <ul>
+        <li>What do I want to know, and why?</li>
+        <li>Which event or metric shows the answer?</li>
+        <li>Which report will show it, and how often will I look at it?</li>
+      </ul>
+      <p class="sheet-note">I write my questions on the <strong>Report requests</strong> tab of my practice spreadsheet.</p>
     </section>
     <section class="long-section">
-      <h2>Write the tracking plan</h2>
-      <p>Use a sheet with these columns: business question, event name, parameters, trigger, GTM tag and status. Use the GA4 recommended event names when one fits. This makes reports easier to use.</p>
-      <p>Take your time with this step. Write down what you see in GTM Preview mode and in GA4 DebugView. Compare it with your tracking plan. If they are not the same, fix the tag before you continue.</p>
+      <h2>I write the tracking plan</h2>
+      <p>Each business question becomes one or more events. For each event, I write the name, the parameters and the trigger. I use the GA4 recommended event names when one fits, because GA4 then gives better reports.</p>
+      <p>To practise for bigger projects, my spreadsheet has room for many websites. Each site has its own status column: Live, Planned, Broken or Not needed. The other sites in it are invented examples.</p>
+      <p class="sheet-note">See the <strong>Sites</strong> and <strong>Event plan</strong> tabs of my spreadsheet.</p>
     </section>
     <section class="long-section">
-      <h2>Install Google Tag Manager</h2>
-      <p>Put the first GTM code in the head of each page, as high as possible. Put the second code just after the opening body tag. Then add a Google tag with your GA4 Measurement ID.</p>
-      <p>Take your time with this step. Write down what you see in GTM Preview mode and in GA4 DebugView. Compare it with your tracking plan. If they are not the same, fix the tag before you continue.</p>
+      <h2>I install Google Tag Manager and use the dataLayer</h2>
+      <p>I put the first GTM code in the head of each page, as high as possible, and the second code just after the opening body tag. Then I add a Google tag with the GA4 Measurement ID.</p>
+      <p>The dataLayer is a list that the website uses to send information to GTM. On this site, each page sends its page type, and the contact form sends an event called generate_lead.</p>
     </section>
     <section class="long-section">
-      <h2>Use the dataLayer</h2>
-      <p>The dataLayer is a list that the page uses to send information to GTM. This site sends the page type on each page. The contact form sends an event called generate_lead.</p>
-      <p>Take your time with this step. Write down what you see in GTM Preview mode and in GA4 DebugView. Compare it with your tracking plan. If they are not the same, fix the tag before you continue.</p>
+      <h2>I build and test one tag at a time</h2>
+      <p>I make one tag, then I test it in GTM Preview mode and in GA4 DebugView. When it is correct, I publish a new GTM version with a clear name and a short note. If I build many tags at the same time, errors are hard to find.</p>
+      <p>Before I publish, I check 3 things: the tag fires on the correct action, it fires only one time, and the parameters have values.</p>
     </section>
     <section class="long-section">
-      <h2>Build one tag at a time</h2>
-      <p>Make the tag, test it in Preview mode, check it in DebugView, then publish. If you build many tags at the same time, errors are hard to find.</p>
-      <p>Take your time with this step. Write down what you see in GTM Preview mode and in GA4 DebugView. Compare it with your tracking plan. If they are not the same, fix the tag before you continue.</p>
+      <h2>I check data quality on a schedule</h2>
+      <p>Tracking can break when a website changes, often without a warning. To practise, I check my data on a schedule, not only when I see a strange number.</p>
+      <ul>
+        <li><strong>Daily:</strong> data arrives, with no day at zero and no sudden drop.</li>
+        <li><strong>Weekly:</strong> key events fire one time only, and their parameters are not empty.</li>
+        <li><strong>Monthly:</strong> the website's own domain is not a referral, unassigned traffic is low, campaign links have UTM tags, and there is no personal data in the reports.</li>
+        <li><strong>After each change to the site:</strong> I test the key events again.</li>
+      </ul>
+      <p class="sheet-note">See the <strong>QA checklist</strong> and <strong>QA log</strong> tabs. The <strong>Summary</strong> tab counts the failed checks for each site.</p>
     </section>
     <section class="long-section">
-      <h2>Test and document</h2>
-      <p>After each change, write a version name and a short note in GTM. Keep a log of what you changed and why. This helps you and the next analyst.</p>
-      <p>Take your time with this step. Write down what you see in GTM Preview mode and in GA4 DebugView. Compare it with your tracking plan. If they are not the same, fix the tag before you continue.</p>
+      <h2>I look for the root cause of tracking issues</h2>
+      <p>When a number looks wrong, I do not fix the first thing that I see. I follow the same steps each time:</p>
+      <ol>
+        <li>I describe the symptom exactly: which report, which site, which dates and how large the change is.</li>
+        <li>I check if the change is real. A holiday or a post on LinkedIn can change traffic.</li>
+        <li>I compare with other data, for example the GA4 Realtime report or the same week last month.</li>
+        <li>I test the tag on the live site with Tag Assistant and DebugView.</li>
+        <li>I check if I changed the website or the GTM container on that date.</li>
+        <li>I write down the root cause and the fix.</li>
+      </ol>
+      <p class="sheet-note">See the <strong>Issue log</strong> tab. It also shows how many days each issue was open.</p>
+    </section>
+    <section class="long-section">
+      <h2>I explain what the data means</h2>
+      <p>A report must answer the question, not only show numbers. I start with the answer in one sentence. Then I show the data that supports it. Then I say what I recommend.</p>
+      <p>I practise writing for two kinds of reader. The first wants the answer in plain words. The second wants technical detail, for example the event name, the page and the steps to make a problem happen again.</p>
+      <p>I use segments to compare groups, for example new and returning visitors, or visitors from LinkedIn and visitors from GitHub.</p>
+    </section>
+    <section class="long-section">
+      <h2>I document everything</h2>
+      <p>I keep my spreadsheet, my GTM version notes and my report notes up to date. Then, months later, I can still explain why a number changed.</p>
     </section>
     </div>
+    <section class="downloads">
+      <h2>Download my templates</h2>
+      <p>The spreadsheet is my practice template, with one tab for each part of my method. The PDF is the tracking plan for this website.</p>
+      <a class="btn" id="download-framework-guide" href="files/multi-site-tracking-plan.xlsx">Download the spreadsheet (Excel)</a>
+      <a class="btn secondary" id="download-tracking-plan-guide" href="files/tracking-plan.pdf">Download the tracking plan (PDF)</a>
+    </section>
     <p>Useful links:
-      <a href="https://support.google.com/tagmanager/" target="_blank" rel="noopener">Tag Manager help</a> ·
-      <a href="https://support.google.com/analytics/" target="_blank" rel="noopener">GA4 help</a></p>
-    <p><a class="btn" id="download-tracking-plan-guide" href="files/tracking-plan.pdf">Download the tracking plan (PDF)</a></p>
+      <a href="https://support.google.com/tagmanager/" target="_blank" rel="noopener">Tag Manager help</a>,
+      <a href="https://support.google.com/analytics/" target="_blank" rel="noopener">GA4 help</a> and
+      <a href="https://experienceleague.adobe.com/" target="_blank" rel="noopener">Adobe Experience League</a>.</p>
   </main>
 
   <footer>
