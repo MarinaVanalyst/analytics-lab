@@ -6,21 +6,16 @@
   <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>About | Marina V. Analytics Lab</title>
-  <meta name="description" content="Marina V., digital marketer moving into data analytics. Projects in GA4, Google Tag Manager, SQL and Python.">
+  <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
 
-  <!-- Page data for GTM. Read it with a Data Layer Variable called page_type. -->
+  <!-- The dataLayer: the website writes information here, and GTM reads it later.
+       It does nothing until GTM is installed. LESSON 3 explains it. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ page_type: 'info' });
   </script>
 
-  <!-- Google Tag Manager. Change GTM-XXXXXXX to your container ID. -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <!-- End Google Tag Manager -->
+  <!-- LESSON 1: paste the first Google Tag Manager code (the <head> code) here. -->
 
   <!-- Font: Public Sans from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,10 +24,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Google Tag Manager (noscript). Change GTM-XXXXXXX to your container ID. -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <!-- LESSON 1: paste the second Google Tag Manager code (the <body> code) here. -->
 
   <header>
     <div class="bar">
@@ -55,19 +47,26 @@
       <img src="images/marina.jpg" alt="Portrait of Marina V.">
       <div>
         <h1>About me</h1>
-        <p class="lead">I work in digital marketing. Now I am moving into data analytics.</p>
+        <p class="lead">I work in digital marketing, and I am learning web analytics.</p>
       </div>
     </div>
-    <p>I use GA4, Looker Studio and Excel in my work. I am learning SQL and Python. I follow a 12 week practice plan. Each phase has a clear result, and I show the results on this site.</p>
-    <h2>What I can do</h2>
+    <p>This website is a practice project. I use it to learn tracking and reporting with real data from my own pages. I follow a 12 week learning plan, and I add each result to this site.</p>
+    <h2>What I practise on this site</h2>
     <ul class="check-list">
-      <li>Write a tracking plan from business questions.</li>
+      <li>Write a tracking plan before I build the tags.</li>
       <li>Set up tags, triggers and variables in Google Tag Manager.</li>
-      <li>Set up GA4 events, key events and custom dimensions.</li>
+      <li>Send events and parameters to GA4 with the dataLayer.</li>
       <li>Test tags with GTM Preview mode and GA4 DebugView.</li>
-      <li>Query GA4 data in BigQuery and make dashboards in Looker Studio.</li>
+      <li>Check data quality, and find the cause when a number looks wrong.</li>
+      <li>Make reports in GA4 and Looker Studio.</li>
     </ul>
-    <p><a class="btn" id="download-tracking-plan" href="files/tracking-plan.pdf">Download my tracking plan (PDF)</a></p>
+    <h2>What I want to learn next</h2>
+    <ul class="check-list">
+      <li>SQL for GA4 data in BigQuery.</li>
+      <li>Adobe Analytics and Piano Analytics.</li>
+      <li>Consent Mode and privacy rules for UK websites.</li>
+    </ul>
+    <p><a class="btn" id="download-tracking-plan" href="files/multi-site-tracking-plan.xlsx">Download my practice tracking spreadsheet</a></p>
   </main>
 
   <footer>
