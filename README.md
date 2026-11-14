@@ -19,12 +19,6 @@ Downloads:
 - `files/tracking-plan.pdf`: the tracking plan for this site.
 - `files/multi-site-tracking-plan.xlsx`: my framework to plan, check and report tracking across many websites.
 
-## Before you publish
-
-1. Each page has `<meta name="robots" content="noindex, nofollow">`. It stops search engines from showing the draft. Remove it from each page when the site is finished.
-2. Install Google Tag Manager: paste the 2 GTM codes where each page says LESSON 1.
-3. Optional: to practise video tracking, add a YouTube video in `guide.html`. The steps are in a comment in the file.
-
 ## Design
 
 - Colours are CSS variables at the top of `styles.css` (part 1): `--indigo` #292966, `--violet` #5C5C99, `--lilac` #A3A3CC, `--periwinkle` #CCCCFF.
