@@ -6,21 +6,16 @@
   <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>Projects | Marina V. Analytics Lab</title>
-  <meta name="description" content="Marina V., digital marketer moving into data analytics. Projects in GA4, Google Tag Manager, SQL and Python.">
+  <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
 
-  <!-- Page data for GTM. Read it with a Data Layer Variable called page_type. -->
+  <!-- The dataLayer: the website writes information here, and GTM reads it later.
+       It does nothing until GTM is installed. LESSON 3 explains it. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ page_type: 'projects' });
   </script>
 
-  <!-- Google Tag Manager. Change GTM-XXXXXXX to your container ID. -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <!-- End Google Tag Manager -->
+  <!-- LESSON 1: paste the first Google Tag Manager code (the <head> code) here. -->
 
   <!-- Font: Public Sans from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,10 +24,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Google Tag Manager (noscript). Change GTM-XXXXXXX to your container ID. -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <!-- LESSON 1: paste the second Google Tag Manager code (the <body> code) here. -->
 
   <header>
     <div class="bar">
@@ -52,24 +44,38 @@
 
   <main>
     <h1>Projects</h1>
-    <p class="lead">Each project has a question, the data, the method and the result.</p>
+    <p class="lead">These are the projects that I use to practise. Each one has a question, the data, the method and the result.</p>
     <article class="featured">
       <div class="info">
-        <span class="tag">Python</span><span class="tag alt">Public health</span>
-        <h3>Breast screening inequalities</h3>
-        <p>An analysis of NHS breast screening coverage in England. It shows that coverage falls as deprivation rises, and it finds the GP practices that need action.</p>
-        <a class="project-link" href="https://github.com/MarinaVanalyst/breast-screening-inequalities" target="_blank" rel="noopener">See the code on GitHub</a>
+        <span class="tag">Google Tag Manager</span><span class="tag alt">GA4</span>
+        <h3>This website: my tracking lab</h3>
+        <p>I track link clicks, file downloads, form sends, scroll depth and video views on this site. Then I follow visitors from page view to contact form, and I look for the step where most of them leave.</p>
+        <a class="project-link" href="guide.html">Read how I track it</a>
       </div>
-      <div class="visual" aria-label="Illustration: screening coverage falls from least to most deprived areas" role="img">
-        <span style="height:92%"></span>
-        <span style="height:86%"></span>
-        <span style="height:79%"></span>
-        <span style="height:70%" class="low"></span>
-        <span style="height:58%" class="low"></span>
+      <div class="visual" aria-label="Illustration of a funnel: page views, scrolls, clicks and form sends" role="img">
+        <span style="height:94%"></span>
+        <span style="height:72%"></span>
+        <span style="height:48%"></span>
+        <span style="height:30%" class="low"></span>
       </div>
     </article>
 
     <section class="project-list">
+      <div class="project-row dark">
+        <div>
+          <span class="tag">Excel</span><span class="tag alt">Tracking</span><span class="tag alt">Data quality</span>
+          <h3>Practice tracking spreadsheet</h3>
+          <p>I made this spreadsheet to learn how to manage tracking on many websites at the same time. It has an event plan, a data quality checklist and log, an issue log and a list of report questions. A summary tab calculates the results for each site. The other sites in it are invented examples.</p>
+          <a class="btn secondary" id="download-framework" href="files/multi-site-tracking-plan.xlsx">Download the spreadsheet</a>
+        </div>
+      </div>
+      <div class="project-row">
+        <div>
+          <span class="tag">GA4</span><span class="tag alt">Looker Studio</span><span class="tag progress">In progress</span>
+          <h3>Monthly web performance report</h3>
+          <p>A monthly report on the GA4 demo account (Google Merchandise Store). It answers 3 questions: where visitors come from, which content they engage with, and where they leave the purchase journey. Each page starts with the answer and a recommendation.</p>
+        </div>
+      </div>
       <div class="project-row dark">
         <div>
           <span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag alt">GA4</span>
@@ -80,10 +86,10 @@
       </div>
       <div class="project-row">
         <div>
-          <span class="tag">Google Tag Manager</span><span class="tag alt">GA4</span>
-          <h3>This website</h3>
-          <p>A live tagging project. I track link clicks, file downloads, form submits, scroll depth and video views on this site.</p>
-          <a class="project-link" href="guide.html">Read how I track it</a>
+          <span class="tag">Python</span><span class="tag alt">Data analysis</span>
+          <h3>Breast screening inequalities</h3>
+          <p>An analysis of public NHS data on breast screening coverage in England. It shows that coverage falls as deprivation rises.</p>
+          <a class="project-link" href="https://github.com/MarinaVanalyst/breast-screening-inequalities" target="_blank" rel="noopener">See the code on GitHub</a>
         </div>
       </div>
     </section>
