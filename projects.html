@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Projects | Marina V. Analytics Lab</title>
+  <meta name="description" content="Marina V., digital marketer moving into data analytics. Projects in GA4, Google Tag Manager, SQL and Python.">
+
+  <!-- Page data for GTM. Read it with a Data Layer Variable called page_type. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ page_type: 'projects' });
+  </script>
+
+  <!-- Google Tag Manager. Change GTM-XXXXXXX to your container ID. -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Font: Public Sans from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Google Tag Manager (noscript). Change GTM-XXXXXXX to your container ID. -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="bar">
+      <a class="logo" href="index.html">
+        <img src="images/marina.jpg" alt="">
+        Marina V.
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="guide.html">Guide</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Projects</h1>
+    <p class="lead">Each project has a question, the data, the method and the result.</p>
+    <article class="featured">
+      <div class="info">
+        <span class="tag">Python</span><span class="tag alt">Public health</span>
+        <h3>Breast screening inequalities</h3>
+        <p>An analysis of NHS breast screening coverage in England. It shows that coverage falls as deprivation rises, and it finds the GP practices that need action.</p>
+        <a class="project-link" href="https://github.com/MarinaVanalyst/breast-screening-inequalities" target="_blank" rel="noopener">See the code on GitHub</a>
+      </div>
+      <div class="visual" aria-label="Illustration: screening coverage falls from least to most deprived areas" role="img">
+        <span style="height:92%"></span>
+        <span style="height:86%"></span>
+        <span style="height:79%"></span>
+        <span style="height:70%" class="low"></span>
+        <span style="height:58%" class="low"></span>
+      </div>
+    </article>
+
+    <section class="project-list">
+      <div class="project-row dark">
+        <div>
+          <span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag alt">GA4</span>
+          <h3>Google Merchandise Store analysis</h3>
+          <p>SQL analysis of the public GA4 sample data for the Google Merchandise Store, from first visit to purchase.</p>
+          <a class="project-link" href="https://github.com/MarinaVanalyst?tab=repositories" target="_blank" rel="noopener">See my repositories</a>
+        </div>
+      </div>
+      <div class="project-row">
+        <div>
+          <span class="tag">Google Tag Manager</span><span class="tag alt">GA4</span>
+          <h3>This website</h3>
+          <p>A live tagging project. I track link clicks, file downloads, form submits, scroll depth and video views on this site.</p>
+          <a class="project-link" href="guide.html">Read how I track it</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>This site uses analytics for practice. Find me on
+      <a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a> and
+      <a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a>.</p>
+  </footer>
+</body>
+</html>
