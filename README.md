@@ -2,7 +2,7 @@
 
 A practice website for Google Tag Manager and GA4. It is hosted free on GitHub Pages.
 
-Live site: https://marinavanalyst.github.io/
+Live site: https://marinavanalyst.github.io/analytics-lab/
 
 ## Pages
 
