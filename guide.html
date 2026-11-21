@@ -3,19 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>Tracking guide | Marina V. Analytics Lab</title>
   <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
 
   <!-- The dataLayer: the website writes information here, and GTM reads it later.
-       It does nothing until GTM is installed. LESSON 3 explains it. -->
+       It does nothing until GTM is installed. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ page_type: 'article' });
   </script>
 
-  <!-- LESSON 1: paste the first Google Tag Manager code (the <head> code) here. -->
+  <!-- Paste the Google Tag Manager code (the <head> code) here. -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W2N66H9H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
 
   <!-- Font: Public Sans from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +29,6 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- LESSON 1: paste the second Google Tag Manager code (the <body> code) here. -->
 
   <header>
     <div class="bar">
