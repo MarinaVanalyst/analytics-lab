@@ -1,6 +1,5 @@
 /* ==========================================================
    Marina V. Analytics Lab
-   Dark theme, inspired by modern portfolio builder sites.
    ========================================================== */
 
 /* 1. DESIGN TOKENS: change colours and font here only */
@@ -599,7 +598,65 @@ footer {
   font-size: 13px;
 }
 
-/* 17. SMALL SCREENS */
+/* 17. WORK IN PROGRESS: badge in the hero and the learning progress card */
+.wip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 18px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #6B5A1E;
+  background: #2A2512;
+  color: #FFDF8A;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.wip-badge span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FFDF8A;
+}
+
+.progress-card { max-width: 900px; margin: 0 auto; }
+.progress-card > p { color: var(--muted); margin-bottom: 20px; }
+
+.progress-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.todo-list { list-style: none; padding: 0; margin: 0; }
+
+.todo-list li {
+  position: relative;
+  padding: 11px 0 11px 34px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.todo-list li:last-child { border-bottom: 0; }
+
+/* An empty circle: not done yet */
+.todo-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 15px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--violet);
+}
+
+@media (max-width: 700px) {
+  .progress-cols { grid-template-columns: 1fr; gap: 8px; }
+}
+
+/* 18. SMALL SCREENS */
 @media (max-width: 860px) {
   .split, .about-grid, .featured { grid-template-columns: 1fr; }
   .funnel { border-left: 0; border-top: 1px solid var(--line); min-height: 200px; }
