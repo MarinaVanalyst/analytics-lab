@@ -3,80 +3,114 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>About | Marina V. Analytics Lab</title>
   <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
 
-  <!-- The dataLayer: the website writes information here, and GTM reads it later.
-       It does nothing until GTM is installed. -->
+  <!-- The dataLayer: the website writes information here, and GTM reads it.
+       Read page_type with the Data Layer Variable "DLV - page_type". -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ page_type: 'info' });
   </script>
 
-  <!-- Paste the Google Tag Manager code (the <head> code) here. -->
+  <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W2N66H9H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- End Google Tag Manager -->
 
-  <!-- Font: Public Sans from Google Fonts -->
+  <!-- Font: Manrope from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <header>
-    <div class="bar">
-      <a class="logo" href="index.html">
-        <img src="images/marina.jpg" alt="">
-        Marina V.
-      </a>
-      <nav>
+  <header class="site-header">
+    <nav class="pill-nav" aria-label="Main menu">
+      <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V.</a>
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html" aria-current="page">About</a>
         <a href="projects.html">Projects</a>
         <a href="guide.html">Guide</a>
         <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+      </div>
+      <a class="btn small nav-cta" id="nav-contact" href="contact.html">Contact me</a>
+    </nav>
   </header>
 
   <main>
-    <div class="about-head">
-      <img src="images/marina.jpg" alt="Portrait of Marina V.">
-      <div>
-        <h1>About me</h1>
-        <p class="lead">I work in digital marketing, and I am learning web analytics.</p>
+    <section class="page-head">
+      <h1>About <span class="grad">me</span></h1>
+      <p class="lead">I work in digital marketing, and I am learning web analytics.</p>
+    </section>
+    <div class="about-grid">
+      <aside class="card photo-card">
+        <img src="images/marina.jpg" alt="Portrait of Marina V.">
+        <p>Marina V.</p>
+        <small>Digital marketing, learning web analytics</small>
+      </aside>
+      <div class="stack">
+        <div class="card">
+          <p>This website is a practice project. I use it to learn tracking and reporting with real data from my own pages. I follow a 12 week learning plan, and I add each result to this site.</p>
+        </div>
+        <div class="card">
+          <h3>What I practise on this site</h3>
+          <ul class="check-list">
+            <li>Write a tracking plan before I build the tags.</li>
+            <li>Set up tags, triggers and variables in Google Tag Manager.</li>
+            <li>Send events and parameters to GA4 with the dataLayer.</li>
+            <li>Test tags with GTM Preview mode and GA4 DebugView.</li>
+            <li>Check data quality, and find the cause when a number looks wrong.</li>
+            <li>Make reports in GA4 and Looker Studio.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What I want to learn next</h3>
+          <ul class="check-list">
+            <li>SQL for GA4 data in BigQuery.</li>
+            <li>Adobe Analytics and Piano Analytics.</li>
+            <li>Consent Mode and privacy rules for UK websites.</li>
+          </ul>
+        </div>
+        <div>
+          <a class="btn" id="download-tracking-plan" href="files/multi-site-tracking-plan.xlsx">Download my practice tracking spreadsheet</a>
+        </div>
       </div>
     </div>
-    <p>This website is a practice project. I use it to learn tracking and reporting with real data from my own pages. I follow a 12 week learning plan, and I add each result to this site.</p>
-    <h2>What I practise on this site</h2>
-    <ul class="check-list">
-      <li>Write a tracking plan before I build the tags.</li>
-      <li>Set up tags, triggers and variables in Google Tag Manager.</li>
-      <li>Send events and parameters to GA4 with the dataLayer.</li>
-      <li>Test tags with GTM Preview mode and GA4 DebugView.</li>
-      <li>Check data quality, and find the cause when a number looks wrong.</li>
-      <li>Make reports in GA4 and Looker Studio.</li>
-    </ul>
-    <h2>What I want to learn next</h2>
-    <ul class="check-list">
-      <li>SQL for GA4 data in BigQuery.</li>
-      <li>Adobe Analytics and Piano Analytics.</li>
-      <li>Consent Mode and privacy rules for UK websites.</li>
-    </ul>
-    <p><a class="btn" id="download-tracking-plan" href="files/multi-site-tracking-plan.xlsx">Download my practice tracking spreadsheet</a></p>
   </main>
 
   <footer>
-    <p>This site uses analytics for practice. Find me on
-      <a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a> and
-      <a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a>.</p>
+    <div class="foot">
+      <div>
+        <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V. Analytics Lab</a>
+        <p>A test website where I learn tracking with Google Tag Manager and GA4, and reporting with Looker Studio.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-note">This site uses Google Tag Manager and Google Analytics 4 for practice. It collects anonymous usage data, such as the pages viewed and the links clicked. It does not collect names or email addresses.</p>
   </footer>
 </body>
 </html>
