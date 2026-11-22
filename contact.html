@@ -3,91 +3,118 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>Contact | Marina V. Analytics Lab</title>
   <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
 
-  <!-- The dataLayer: the website writes information here, and GTM reads it later.
-       It does nothing until GTM is installed. -->
+  <!-- The dataLayer: the website writes information here, and GTM reads it.
+       Read page_type with the Data Layer Variable "DLV - page_type". -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ page_type: 'lead' });
   </script>
 
-  <!-- Paste the Google Tag Manager code (the <head> code) here. -->
+  <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W2N66H9H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- End Google Tag Manager -->
 
-  <!-- Font: Public Sans from Google Fonts -->
+  <!-- Font: Manrope from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <header>
-    <div class="bar">
-      <a class="logo" href="index.html">
-        <img src="images/marina.jpg" alt="">
-        Marina V.
-      </a>
-      <nav>
+  <header class="site-header">
+    <nav class="pill-nav" aria-label="Main menu">
+      <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V.</a>
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="guide.html">Guide</a>
         <a href="contact.html" aria-current="page">Contact</a>
-      </nav>
-    </div>
+      </div>
+      <a class="btn small nav-cta" id="nav-contact" href="contact.html">Contact me</a>
+    </nav>
   </header>
 
   <main>
-    <h1>Contact me</h1>
-    <p class="lead">Send me feedback on this site, or a question about one of my projects.</p>
-    <p class="notice" id="form-thanks">Thank you. This is a practice form, so your message was not sent. The site sent a generate_lead event to the dataLayer.</p>
-    <form id="contact-form">
-      <label>Name <input type="text" name="name" required></label>
-      <label>Email <input type="email" name="email" required></label>
-      <label>Topic
-        <select name="topic">
-          <option value="site_feedback">Feedback on this site</option>
-          <option value="project_question">Question about a project</option>
-          <option value="other">Other</option>
-        </select>
-      </label>
-      <label>Message <textarea name="message" rows="5" required></textarea></label>
-      <button class="btn" type="submit">Send</button>
-    </form>
-    <p>You can also find me on <a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a>.</p>
-
-    <script>
-      // GitHub Pages cannot receive form data. This code stops the real submit,
-      // sends an event to the dataLayer, and shows a message.
-      // Do not send the name, email or message to GA4. That is personal data.
-      document.getElementById('contact-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'generate_lead',
-          form_id: 'contact-form',
-          lead_topic: this.topic.value
-        });
-        this.reset();
-        this.style.display = 'none';
-        document.getElementById('form-thanks').style.display = 'block';
-      });
-    </script>
+    <section class="page-head">
+      <h1>Contact <span class="grad">me</span></h1>
+      <p class="lead">Send me feedback on this site, or a question about one of my projects.</p>
+    </section>
+    <div class="notice" id="form-thanks" role="status">
+      <h3>Thank you</h3>
+      <p>This is a practice form, so your message was not sent. The site sent a generate_lead event to the dataLayer.</p>
+    </div>
+    <div class="card form-card" id="form-card">
+      <form id="contact-form">
+        <label>Name <input type="text" name="name" autocomplete="name" required></label>
+        <label>Email <input type="email" name="email" autocomplete="email" required></label>
+        <label>Topic
+          <select name="topic">
+            <option value="site_feedback">Feedback on this site</option>
+            <option value="project_question">Question about a project</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>Message <textarea name="message" rows="5" required></textarea></label>
+        <div><button class="btn" type="submit">Send</button></div>
+      </form>
+    </div>
+    <p class="form-help">You can also find me on <a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a>.</p>
   </main>
 
   <footer>
-    <p>This site uses analytics for practice. Find me on
-      <a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a> and
-      <a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a>.</p>
+    <div class="foot">
+      <div>
+        <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V. Analytics Lab</a>
+        <p>A test website where I learn tracking with Google Tag Manager and GA4, and reporting with Looker Studio.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-note">This site uses Google Tag Manager and Google Analytics 4 for practice. It collects anonymous usage data, such as the pages viewed and the links clicked. It does not collect names or email addresses.</p>
   </footer>
+
+  <script>
+    // GitHub Pages cannot receive form data. This code stops the real submit,
+    // sends an event to the dataLayer, and shows a message.
+    // Do not send the name, email or message to GA4. That is personal data.
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'generate_lead',
+        form_id: 'contact-form',
+        lead_topic: this.topic.value
+      });
+      this.reset();
+      document.getElementById('form-card').style.display = 'none';
+      document.getElementById('form-thanks').style.display = 'block';
+    });
+  </script>
 </body>
 </html>
