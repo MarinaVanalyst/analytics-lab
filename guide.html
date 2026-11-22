@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>Tracking guide | Marina V. Analytics Lab</title>
   <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
@@ -47,8 +46,9 @@
 
   <main>
     <section class="page-head">
+      <p class="wip-badge"><span aria-hidden="true"></span>Work in progress: I am still learning</p>
       <h1>How I track <span class="grad">this website</span></h1>
-      <p class="lead">These are the steps that I follow on this practice site. I wrote them down to learn the method. This is also a long page, so I use it to test scroll depth tracking.</p>
+      <p class="lead">This is the method that I am learning, step by step. Each step shows if I have done it on this site yet. This is also a long page, so I use it to test scroll depth tracking.</p>
     </section>
     <!-- VIDEO (removed until I choose a video)
          To add a YouTube video for video tracking practice:
@@ -62,6 +62,7 @@
     -->
     <div class="steps">
       <section class="card step">
+        <div class="tags"><span class="tag progress">In progress</span></div>
         <h3>I start with a question</h3>
         <p>Before I make a tag or a report, I write down what I want to know. A specific question gets a useful answer. "Do visitors who read the guide also send the contact form?" is better than "How is the site doing?".</p>
         <p>I ask these questions:</p>
@@ -73,23 +74,27 @@
         <p class="sheet-note">I write my questions on the <strong>Report requests</strong> tab of my practice spreadsheet.</p>
       </section>
       <section class="card step">
+        <div class="tags"><span class="tag progress">In progress</span></div>
         <h3>I write the tracking plan</h3>
         <p>Each business question becomes one or more events. For each event, I write the name, the parameters and the trigger. I use the GA4 recommended event names when one fits, because GA4 then gives better reports.</p>
         <p>To practise for bigger projects, my spreadsheet has room for many websites. Each site has its own status column: Live, Planned, Broken or Not needed. The other sites in it are invented examples.</p>
         <p class="sheet-note">See the <strong>Sites</strong> and <strong>Event plan</strong> tabs of my spreadsheet.</p>
       </section>
       <section class="card step">
+        <div class="tags"><span class="tag">Done</span></div>
         <h3>I install Google Tag Manager and use the dataLayer</h3>
         <p>I put the Google Tag Manager code in the head of each page, as high as possible. Then I add a Google Analytics tag with the GA4 Measurement ID, on the Initialization trigger.</p>
         <p>The dataLayer is a list that the website uses to send information to GTM. On this site, each page sends its page type, and the contact form sends an event called generate_lead.</p>
         <p>I turn off the automatic events that I build myself, in GA4 and in the GTM container settings. Then nothing counts twice.</p>
       </section>
       <section class="card step">
+        <div class="tags"><span class="tag progress">In progress</span></div>
         <h3>I build and test one tag at a time</h3>
         <p>I make one tag, then I test it in GTM Preview mode and in GA4 DebugView. When it is correct, I publish a new GTM version with a clear name and a short note. If I build many tags at the same time, errors are hard to find.</p>
         <p>Before I publish, I check 3 things: the tag fires on the correct action, it fires only one time, and the parameters have values. I also read the list of changes in the version, so that no setting goes live by mistake.</p>
       </section>
       <section class="card step">
+        <div class="tags"><span class="tag alt">Not started yet</span></div>
         <h3>I check data quality on a schedule</h3>
         <p>Tracking can break when a website changes, often without a warning. To practise, I check my data on a schedule, not only when I see a strange number.</p>
         <ul>
@@ -101,6 +106,7 @@
         <p class="sheet-note">See the <strong>QA checklist</strong> and <strong>QA log</strong> tabs. The <strong>Summary</strong> tab counts the failed checks for each site.</p>
       </section>
       <section class="card step">
+        <div class="tags"><span class="tag alt">Not started yet</span></div>
         <h3>I look for the root cause of tracking issues</h3>
         <p>When a number looks wrong, I do not fix the first thing that I see. I follow the same steps each time:</p>
         <ol>
@@ -114,12 +120,14 @@
         <p class="sheet-note">See the <strong>Issue log</strong> tab. It also shows how many days each issue was open.</p>
       </section>
       <section class="card step">
+        <div class="tags"><span class="tag alt">Not started yet</span></div>
         <h3>I explain what the data means</h3>
         <p>A report must answer the question, not only show numbers. I start with the answer in one sentence. Then I show the data that supports it. Then I say what I recommend.</p>
         <p>I practise writing for two kinds of reader. The first wants the answer in plain words. The second wants technical detail, for example the event name, the page and the steps to make a problem happen again.</p>
         <p>I use segments to compare groups, for example new and returning visitors, or visitors from LinkedIn and visitors from GitHub.</p>
       </section>
       <section class="card step">
+        <div class="tags"><span class="tag progress">In progress</span></div>
         <h3>I document everything</h3>
         <p>I keep my spreadsheet, my GTM version notes and my report notes up to date. Then, months later, I can still explain why a number changed.</p>
       </section>
