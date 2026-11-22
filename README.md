@@ -43,12 +43,11 @@ Downloads:
 
 ## Before the site is finished
 
-1. Each page has `<meta name="robots" content="noindex, nofollow">`. It stops search engines from showing the draft. Remove it from each page when the site is finished.
-2. Optional: to practise video tracking, add a YouTube video in `guide.html`. The steps are in a comment in the file.
+1. Each page has `<meta name="robots" content="noindex, nofollow">`. It stops search engines from showing the draft. I will need to remove it from each page when the site is finished.
 
 ## Design
 
-- Dark theme, inspired by modern portfolio builder websites: floating pill menu, centred headings, dark rounded cards, questions that open and close.
+- Dark theme, with: floating pill menu, centred headings, dark rounded cards, questions that open and close.
 - Colours are CSS variables at the top of `styles.css` (part 1). Palette: `--indigo` #292966, `--violet` #5C5C99, `--lilac` #A3A3CC, `--periwinkle` #CCCCFF.
 - Font: Manrope from Google Fonts.
 - The photo is `images/marina.jpg` (400 x 400 px).
