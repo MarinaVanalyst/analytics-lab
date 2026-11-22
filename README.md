@@ -33,7 +33,7 @@ Live site: https://marinavanalyst.github.io/analytics-lab/
 | index.html | home | Buttons (ids `cta-projects`, `cta-contact`, `cta-guide`), questions that open and close |
 | about.html | info | Spreadsheet download |
 | projects.html | projects | Outbound links (class `project-link`), spreadsheet download |
-| guide.html | article | Scroll depth, spreadsheet and PDF downloads (video optional) |
+| guide.html | article | Scroll depth, spreadsheet and PDF downloads |
 | contact.html | lead | `generate_lead` event from the form |
 
 Downloads:
