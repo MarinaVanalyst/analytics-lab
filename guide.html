@@ -3,142 +3,164 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>Tracking guide | Marina V. Analytics Lab</title>
   <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
 
-  <!-- The dataLayer: the website writes information here, and GTM reads it later.
-       It does nothing until GTM is installed. -->
+  <!-- The dataLayer: the website writes information here, and GTM reads it.
+       Read page_type with the Data Layer Variable "DLV - page_type". -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ page_type: 'article' });
   </script>
 
-  <!-- Paste the Google Tag Manager code (the <head> code) here. -->
+  <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W2N66H9H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- End Google Tag Manager -->
 
-  <!-- Font: Public Sans from Google Fonts -->
+  <!-- Font: Manrope from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <header>
-    <div class="bar">
-      <a class="logo" href="index.html">
-        <img src="images/marina.jpg" alt="">
-        Marina V.
-      </a>
-      <nav>
+  <header class="site-header">
+    <nav class="pill-nav" aria-label="Main menu">
+      <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V.</a>
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="guide.html" aria-current="page">Guide</a>
         <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+      </div>
+      <a class="btn small nav-cta" id="nav-contact" href="contact.html">Contact me</a>
+    </nav>
   </header>
 
   <main>
-    <h1>How I track this website</h1>
-    <p class="lead">These are the steps that I follow on this practice site. I wrote them down to learn the method. This is also a long page, so I use it to test scroll depth tracking.</p>
+    <section class="page-head">
+      <h1>How I track <span class="grad">this website</span></h1>
+      <p class="lead">These are the steps that I follow on this practice site. I wrote them down to learn the method. This is also a long page, so I use it to test scroll depth tracking.</p>
+    </section>
     <!-- VIDEO (removed until I choose a video)
          To add a YouTube video for video tracking practice:
          1. Find a video on YouTube. Click "Share", then "Embed", and check that embedding is allowed.
          2. Copy the video ID: the part after "v=" in the address.
          3. Remove the comment marks around the block below, and change VIDEO_ID to your ID.
 
-    <h2>Watch: an introduction</h2>
     <div class="video-wrap"><div class="video">
       <iframe src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1" title="Introduction video" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
     </div></div>
     -->
     <div class="steps">
-    <section class="long-section">
-      <h2>I start with a question</h2>
-      <p>Before I make a tag or a report, I write down what I want to know. A specific question gets a useful answer. "Do visitors who read the guide also send the contact form?" is better than "How is the site doing?".</p>
-      <p>I ask these questions:</p>
-      <ul>
-        <li>What do I want to know, and why?</li>
-        <li>Which event or metric shows the answer?</li>
-        <li>Which report will show it, and how often will I look at it?</li>
-      </ul>
-      <p class="sheet-note">I write my questions on the <strong>Report requests</strong> tab of my practice spreadsheet.</p>
-    </section>
-    <section class="long-section">
-      <h2>I write the tracking plan</h2>
-      <p>Each business question becomes one or more events. For each event, I write the name, the parameters and the trigger. I use the GA4 recommended event names when one fits, because GA4 then gives better reports.</p>
-      <p>To practise for bigger projects, my spreadsheet has room for many websites. Each site has its own status column: Live, Planned, Broken or Not needed. The other sites in it are invented examples.</p>
-      <p class="sheet-note">See the <strong>Sites</strong> and <strong>Event plan</strong> tabs of my spreadsheet.</p>
-    </section>
-    <section class="long-section">
-      <h2>I install Google Tag Manager and use the dataLayer</h2>
-      <p>I put the first GTM code in the head of each page, as high as possible, and the second code just after the opening body tag. Then I add a Google tag with the GA4 Measurement ID.</p>
-      <p>The dataLayer is a list that the website uses to send information to GTM. On this site, each page sends its page type, and the contact form sends an event called generate_lead.</p>
-    </section>
-    <section class="long-section">
-      <h2>I build and test one tag at a time</h2>
-      <p>I make one tag, then I test it in GTM Preview mode and in GA4 DebugView. When it is correct, I publish a new GTM version with a clear name and a short note. If I build many tags at the same time, errors are hard to find.</p>
-      <p>Before I publish, I check 3 things: the tag fires on the correct action, it fires only one time, and the parameters have values.</p>
-    </section>
-    <section class="long-section">
-      <h2>I check data quality on a schedule</h2>
-      <p>Tracking can break when a website changes, often without a warning. To practise, I check my data on a schedule, not only when I see a strange number.</p>
-      <ul>
-        <li><strong>Daily:</strong> data arrives, with no day at zero and no sudden drop.</li>
-        <li><strong>Weekly:</strong> key events fire one time only, and their parameters are not empty.</li>
-        <li><strong>Monthly:</strong> the website's own domain is not a referral, unassigned traffic is low, campaign links have UTM tags, and there is no personal data in the reports.</li>
-        <li><strong>After each change to the site:</strong> I test the key events again.</li>
-      </ul>
-      <p class="sheet-note">See the <strong>QA checklist</strong> and <strong>QA log</strong> tabs. The <strong>Summary</strong> tab counts the failed checks for each site.</p>
-    </section>
-    <section class="long-section">
-      <h2>I look for the root cause of tracking issues</h2>
-      <p>When a number looks wrong, I do not fix the first thing that I see. I follow the same steps each time:</p>
-      <ol>
-        <li>I describe the symptom exactly: which report, which site, which dates and how large the change is.</li>
-        <li>I check if the change is real. A holiday or a post on LinkedIn can change traffic.</li>
-        <li>I compare with other data, for example the GA4 Realtime report or the same week last month.</li>
-        <li>I test the tag on the live site with Tag Assistant and DebugView.</li>
-        <li>I check if I changed the website or the GTM container on that date.</li>
-        <li>I write down the root cause and the fix.</li>
-      </ol>
-      <p class="sheet-note">See the <strong>Issue log</strong> tab. It also shows how many days each issue was open.</p>
-    </section>
-    <section class="long-section">
-      <h2>I explain what the data means</h2>
-      <p>A report must answer the question, not only show numbers. I start with the answer in one sentence. Then I show the data that supports it. Then I say what I recommend.</p>
-      <p>I practise writing for two kinds of reader. The first wants the answer in plain words. The second wants technical detail, for example the event name, the page and the steps to make a problem happen again.</p>
-      <p>I use segments to compare groups, for example new and returning visitors, or visitors from LinkedIn and visitors from GitHub.</p>
-    </section>
-    <section class="long-section">
-      <h2>I document everything</h2>
-      <p>I keep my spreadsheet, my GTM version notes and my report notes up to date. Then, months later, I can still explain why a number changed.</p>
-    </section>
+      <section class="card step">
+        <h3>I start with a question</h3>
+        <p>Before I make a tag or a report, I write down what I want to know. A specific question gets a useful answer. "Do visitors who read the guide also send the contact form?" is better than "How is the site doing?".</p>
+        <p>I ask these questions:</p>
+        <ul>
+          <li>What do I want to know, and why?</li>
+          <li>Which event or metric shows the answer?</li>
+          <li>Which report will show it, and how often will I look at it?</li>
+        </ul>
+        <p class="sheet-note">I write my questions on the <strong>Report requests</strong> tab of my practice spreadsheet.</p>
+      </section>
+      <section class="card step">
+        <h3>I write the tracking plan</h3>
+        <p>Each business question becomes one or more events. For each event, I write the name, the parameters and the trigger. I use the GA4 recommended event names when one fits, because GA4 then gives better reports.</p>
+        <p>To practise for bigger projects, my spreadsheet has room for many websites. Each site has its own status column: Live, Planned, Broken or Not needed. The other sites in it are invented examples.</p>
+        <p class="sheet-note">See the <strong>Sites</strong> and <strong>Event plan</strong> tabs of my spreadsheet.</p>
+      </section>
+      <section class="card step">
+        <h3>I install Google Tag Manager and use the dataLayer</h3>
+        <p>I put the Google Tag Manager code in the head of each page, as high as possible. Then I add a Google Analytics tag with the GA4 Measurement ID, on the Initialization trigger.</p>
+        <p>The dataLayer is a list that the website uses to send information to GTM. On this site, each page sends its page type, and the contact form sends an event called generate_lead.</p>
+        <p>I turn off the automatic events that I build myself, in GA4 and in the GTM container settings. Then nothing counts twice.</p>
+      </section>
+      <section class="card step">
+        <h3>I build and test one tag at a time</h3>
+        <p>I make one tag, then I test it in GTM Preview mode and in GA4 DebugView. When it is correct, I publish a new GTM version with a clear name and a short note. If I build many tags at the same time, errors are hard to find.</p>
+        <p>Before I publish, I check 3 things: the tag fires on the correct action, it fires only one time, and the parameters have values. I also read the list of changes in the version, so that no setting goes live by mistake.</p>
+      </section>
+      <section class="card step">
+        <h3>I check data quality on a schedule</h3>
+        <p>Tracking can break when a website changes, often without a warning. To practise, I check my data on a schedule, not only when I see a strange number.</p>
+        <ul>
+          <li><strong>Daily:</strong> data arrives, with no day at zero and no sudden drop.</li>
+          <li><strong>Weekly:</strong> key events fire one time only, and their parameters are not empty.</li>
+          <li><strong>Monthly:</strong> the website's own domain is not a referral, unassigned traffic is low, campaign links have UTM tags, and there is no personal data in the reports.</li>
+          <li><strong>After each change to the site:</strong> I test the key events again.</li>
+        </ul>
+        <p class="sheet-note">See the <strong>QA checklist</strong> and <strong>QA log</strong> tabs. The <strong>Summary</strong> tab counts the failed checks for each site.</p>
+      </section>
+      <section class="card step">
+        <h3>I look for the root cause of tracking issues</h3>
+        <p>When a number looks wrong, I do not fix the first thing that I see. I follow the same steps each time:</p>
+        <ol>
+          <li>I describe the symptom exactly: which report, which site, which dates and how large the change is.</li>
+          <li>I check if the change is real. A holiday or a post on LinkedIn can change traffic.</li>
+          <li>I compare with other data, for example the GA4 Realtime report or the same week last month.</li>
+          <li>I test the tag on the live site with Tag Assistant and DebugView.</li>
+          <li>I check if I changed the website or the GTM container on that date.</li>
+          <li>I write down the root cause and the fix.</li>
+        </ol>
+        <p class="sheet-note">See the <strong>Issue log</strong> tab. It also shows how many days each issue was open.</p>
+      </section>
+      <section class="card step">
+        <h3>I explain what the data means</h3>
+        <p>A report must answer the question, not only show numbers. I start with the answer in one sentence. Then I show the data that supports it. Then I say what I recommend.</p>
+        <p>I practise writing for two kinds of reader. The first wants the answer in plain words. The second wants technical detail, for example the event name, the page and the steps to make a problem happen again.</p>
+        <p>I use segments to compare groups, for example new and returning visitors, or visitors from LinkedIn and visitors from GitHub.</p>
+      </section>
+      <section class="card step">
+        <h3>I document everything</h3>
+        <p>I keep my spreadsheet, my GTM version notes and my report notes up to date. Then, months later, I can still explain why a number changed.</p>
+      </section>
     </div>
-    <section class="downloads">
-      <h2>Download my templates</h2>
+    <section class="card downloads">
+      <h3>Download my templates</h3>
       <p>The spreadsheet is my practice template, with one tab for each part of my method. The PDF is the tracking plan for this website.</p>
       <a class="btn" id="download-framework-guide" href="files/multi-site-tracking-plan.xlsx">Download the spreadsheet (Excel)</a>
-      <a class="btn secondary" id="download-tracking-plan-guide" href="files/tracking-plan.pdf">Download the tracking plan (PDF)</a>
+      <a class="btn ghost" id="download-tracking-plan-guide" href="files/tracking-plan.pdf">Download the tracking plan (PDF)</a>
     </section>
-    <p>Useful links:
+    <p class="help-links">Useful links:
       <a href="https://support.google.com/tagmanager/" target="_blank" rel="noopener">Tag Manager help</a>,
       <a href="https://support.google.com/analytics/" target="_blank" rel="noopener">GA4 help</a> and
       <a href="https://experienceleague.adobe.com/" target="_blank" rel="noopener">Adobe Experience League</a>.</p>
   </main>
 
   <footer>
-    <p>This site uses analytics for practice. Find me on
-      <a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a> and
-      <a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a>.</p>
+    <div class="foot">
+      <div>
+        <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V. Analytics Lab</a>
+        <p>A test website where I learn tracking with Google Tag Manager and GA4, and reporting with Looker Studio.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-note">This site uses Google Tag Manager and Google Analytics 4 for practice. It collects anonymous usage data, such as the pages viewed and the links clicked. It does not collect names or email addresses.</p>
   </footer>
 </body>
 </html>
