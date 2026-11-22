@@ -3,106 +3,121 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>Projects | Marina V. Analytics Lab</title>
   <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
 
-  <!-- The dataLayer: the website writes information here, and GTM reads it later.
-       It does nothing until GTM is installed -->
+  <!-- The dataLayer: the website writes information here, and GTM reads it.
+       Read page_type with the Data Layer Variable "DLV - page_type". -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ page_type: 'projects' });
   </script>
 
-  <!-- Paste the GTM code here in the head section --->
+  <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W2N66H9H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- End Google Tag Manager -->
 
-  <!-- Font: Public Sans from Google Fonts -->
+  <!-- Font: Manrope from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <header>
-    <div class="bar">
-      <a class="logo" href="index.html">
-        <img src="images/marina.jpg" alt="">
-        Marina V.
-      </a>
-      <nav>
+  <header class="site-header">
+    <nav class="pill-nav" aria-label="Main menu">
+      <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V.</a>
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html" aria-current="page">Projects</a>
         <a href="guide.html">Guide</a>
         <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+      </div>
+      <a class="btn small nav-cta" id="nav-contact" href="contact.html">Contact me</a>
+    </nav>
   </header>
 
   <main>
-    <h1>Projects</h1>
-    <p class="lead">These are the projects that I use to practise. Each one has a question, the data, the method and the result.</p>
-    <article class="featured">
+    <section class="page-head">
+      <h1>Practice <span class="grad">projects</span></h1>
+      <p class="lead">The projects that I use to practise. Each one has a question, the data, the method and the result.</p>
+    </section>
+
+    <article class="card featured" style="margin-top:40px">
       <div class="info">
-        <span class="tag">Google Tag Manager</span><span class="tag alt">GA4</span>
+        <div class="tags"><span class="tag">Google Tag Manager</span><span class="tag alt">GA4</span></div>
         <h3>This website: my tracking lab</h3>
-        <p>I track link clicks, file downloads, form sends, scroll depth and video views on this site. Then I follow visitors from page view to contact form, and I look for the step where most of them leave.</p>
+        <p>I track link clicks, file downloads, form sends and scroll depth on this site. Then I follow visitors from page view to contact form, and I look for the step where most of them leave.</p>
         <a class="project-link" href="guide.html">Read how I track it</a>
       </div>
-      <div class="visual" aria-label="Illustration of a funnel: page views, scrolls, clicks and form sends" role="img">
-        <span style="height:94%"></span>
-        <span style="height:72%"></span>
-        <span style="height:48%"></span>
-        <span style="height:30%" class="low"></span>
+      <div class="funnel" role="img" aria-label="Illustration of a funnel: page views, scrolls, clicks and form sends">
+        <div><span style="height:94%"></span><small>Page views</small></div>
+        <div><span style="height:70%"></span><small>Scrolls</small></div>
+        <div><span style="height:46%"></span><small>Clicks</small></div>
+        <div><span class="low" style="height:26%"></span><small>Form sends</small></div>
       </div>
     </article>
 
-    <section class="project-list">
-      <div class="project-row dark">
-        <div>
-          <span class="tag">Excel</span><span class="tag alt">Tracking</span><span class="tag alt">Data quality</span>
-          <h3>Practice tracking spreadsheet</h3>
-          <p>I made this spreadsheet to learn how to manage tracking on many websites at the same time. It has an event plan, a data quality checklist and log, an issue log and a list of report questions. A summary tab calculates the results for each site. The other sites in it are invented examples.</p>
-          <a class="btn secondary" id="download-framework" href="files/multi-site-tracking-plan.xlsx">Download the spreadsheet</a>
-        </div>
-      </div>
-      <div class="project-row">
-        <div>
-          <span class="tag">GA4</span><span class="tag alt">Looker Studio</span><span class="tag progress">In progress</span>
-          <h3>Monthly web performance report</h3>
-          <p>A monthly report on the GA4 demo account (Google Merchandise Store). It answers 3 questions: where visitors come from, which content they engage with, and where they leave the purchase journey. Each page starts with the answer and a recommendation.</p>
-        </div>
-      </div>
-      <div class="project-row dark">
-        <div>
-          <span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag alt">GA4</span>
-          <h3>Google Merchandise Store analysis</h3>
-          <p>SQL analysis of the public GA4 sample data for the Google Merchandise Store, from first visit to purchase.</p>
-          <a class="project-link" href="https://github.com/MarinaVanalyst?tab=repositories" target="_blank" rel="noopener">See my repositories</a>
-        </div>
-      </div>
-      <div class="project-row">
-        <div>
-          <span class="tag">Python</span><span class="tag alt">Data analysis</span>
-          <h3>Breast screening inequalities</h3>
-          <p>An analysis of public NHS data on breast screening coverage in England. It shows that coverage falls as deprivation rises.</p>
-          <a class="project-link" href="https://github.com/MarinaVanalyst/breast-screening-inequalities" target="_blank" rel="noopener">See the code on GitHub</a>
-        </div>
-      </div>
-    </section>
+    <div class="project-grid">
+      <article class="card">
+        <div class="tags"><span class="tag">Excel</span><span class="tag alt">Tracking</span><span class="tag alt">Data quality</span></div>
+        <h3>Practice tracking spreadsheet</h3>
+        <p>I made this spreadsheet to learn how to manage tracking on many websites at the same time. It has an event plan, a data quality checklist and log, an issue log and a list of report questions. A summary tab calculates the results for each site. The other sites in it are invented examples.</p>
+        <a class="btn ghost" id="download-framework" href="files/multi-site-tracking-plan.xlsx" style="margin-top:18px">Download the spreadsheet</a>
+      </article>
+      <article class="card">
+        <div class="tags"><span class="tag">GA4</span><span class="tag alt">Looker Studio</span><span class="tag progress">In progress</span></div>
+        <h3>Monthly web performance report</h3>
+        <p>A monthly report on the GA4 demo account (Google Merchandise Store). It answers 3 questions: where visitors come from, which content they engage with, and where they leave the purchase journey. Each page starts with the answer and a recommendation.</p>
+      </article>
+      <article class="card">
+        <div class="tags"><span class="tag">SQL</span><span class="tag">BigQuery</span><span class="tag alt">GA4</span></div>
+        <h3>Google Merchandise Store analysis</h3>
+        <p>SQL analysis of the public GA4 sample data for the Google Merchandise Store, from first visit to purchase.</p>
+        <a class="project-link" href="https://github.com/MarinaVanalyst?tab=repositories" target="_blank" rel="noopener">See my repositories</a>
+      </article>
+      <article class="card">
+        <div class="tags"><span class="tag">Python</span><span class="tag alt">Data analysis</span></div>
+        <h3>Breast screening inequalities</h3>
+        <p>An analysis of public NHS data on breast screening coverage in England. It shows that coverage falls as deprivation rises.</p>
+        <a class="project-link" href="https://github.com/MarinaVanalyst/breast-screening-inequalities" target="_blank" rel="noopener">See the code on GitHub</a>
+      </article>
+    </div>
   </main>
 
   <footer>
-    <p>This site uses analytics for practice. Find me on
-      <a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a> and
-      <a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a>.</p>
+    <div class="foot">
+      <div>
+        <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V. Analytics Lab</a>
+        <p>A test website where I learn tracking with Google Tag Manager and GA4, and reporting with Looker Studio.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-note">This site uses Google Tag Manager and Google Analytics 4 for practice. It collects anonymous usage data, such as the pages viewed and the links clicked. It does not collect names or email addresses.</p>
   </footer>
 </body>
 </html>
