@@ -3,97 +3,213 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Draft: stops Google from showing this site. Remove this line when the site is finished. -->
   <meta name="robots" content="noindex, nofollow">
   <title>Marina V. | Analytics Lab</title>
   <meta name="description" content="The practice website of Marina V. I use it to learn web tracking with Google Tag Manager and GA4, and reporting with Looker Studio.">
 
-  <!-- The dataLayer: the website writes information here, and GTM reads it later.
-       It does nothing until GTM is installed. -->
+  <!-- The dataLayer: the website writes information here, and GTM reads it.
+       Read page_type with the Data Layer Variable "DLV - page_type". -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ page_type: 'home' });
   </script>
 
-  <!-- Paste the first Google Tag Manager code (the <head> code) here. -->
+  <!-- Google Tag Manager -->
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W2N66H9H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- End Google Tag Manager -->
 
-  <!-- Font: Public Sans from Google Fonts -->
+  <!-- Font: Manrope from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <header>
-    <div class="bar">
-      <a class="logo" href="index.html">
-        <img src="images/marina.jpg" alt="">
-        Marina V.
-      </a>
-      <nav>
+  <header class="site-header">
+    <nav class="pill-nav" aria-label="Main menu">
+      <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V.</a>
+      <div class="nav-links">
         <a href="index.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="guide.html">Guide</a>
         <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+      </div>
+      <a class="btn small nav-cta" id="nav-contact" href="contact.html">Contact me</a>
+    </nav>
   </header>
 
   <main>
     <section class="hero">
-      <div>
-        <h1>This is my test website for learning web analytics.</h1>
-        <p class="lead">I built this site to practise tracking with Google Tag Manager and GA4, and reporting with Looker Studio. Each click, scroll and form on these pages is a test for my tags.</p>
-        <ul class="skills-line">
-          <li class="tag">GA4</li>
-          <li class="tag">Google Tag Manager</li>
-          <li class="tag alt">SQL</li>
-          <li class="tag alt">Python</li>
-          <li class="tag">Looker Studio</li>
-          <li class="tag alt">Excel</li>
-        </ul>
-        <a class="btn" id="cta-projects" href="projects.html">See my practice projects</a>
-        <a class="btn secondary" id="cta-contact" href="contact.html">Contact me</a>
-      </div>
-
       <div class="portrait">
         <svg viewBox="0 0 42 42" aria-hidden="true">
-          <circle cx="21" cy="21" r="15.9155" fill="none" stroke="#FFFFFF" stroke-width="2.4"/>
-          <circle class="ring-main" cx="21" cy="21" r="15.9155" fill="none" stroke-width="2.4" stroke-linecap="round" pathLength="100"/>
-          <circle class="ring-second" cx="21" cy="21" r="15.9155" fill="none" stroke-width="2.4" stroke-linecap="round" pathLength="100"/>
+          <circle class="ring-track" cx="21" cy="21" r="15.9155" fill="none" stroke-width="2.2"/>
+          <circle class="ring-main" cx="21" cy="21" r="15.9155" fill="none" stroke-width="2.2" stroke-linecap="round" pathLength="100"/>
+          <circle class="ring-second" cx="21" cy="21" r="15.9155" fill="none" stroke-width="2.2" stroke-linecap="round" pathLength="100"/>
         </svg>
         <img src="images/marina.jpg" alt="Portrait of Marina V.">
       </div>
+      <h1>My web analytics<br><span class="grad">practice lab</span></h1>
+      <p class="lead">I built this test website to learn tracking with Google Tag Manager and GA4, and reporting with Looker Studio. Each click, scroll and form on these pages is a test for my tags.</p>
+      <a class="btn" id="cta-projects" href="projects.html">See my practice projects</a>
+      <a class="btn ghost" id="cta-contact" href="contact.html">Contact me</a>
+      <p class="small-note">A test website. It is not a business, and it has no customers.</p>
+      <ul class="tool-row" aria-label="Tools I use">
+        <li>Google Tag Manager</li>
+        <li>Google Analytics 4</li>
+        <li>Looker Studio</li>
+        <li>BigQuery</li>
+        <li>Excel</li>
+      </ul>
     </section>
 
-    <h2>What I practise here</h2>
-    <section class="columns">
+    <section class="section split">
       <div>
-        <h3>Tracking</h3>
-        <p>I plan the events, then I set up tags, triggers and variables in Google Tag Manager. They send clicks, scrolls, downloads and form sends to GA4.</p>
+        <h2>How a click becomes data</h2>
+        <p class="lead">On this site, I can follow each visit from the page to the report.</p>
+        <ol class="flow">
+          <li><strong>The page writes to the dataLayer</strong>Each page writes its page type. The contact form writes an event called generate_lead.</li>
+          <li><strong>Google Tag Manager reads it</strong>A trigger waits for the event. When it happens, a tag fires and takes the details from variables.</li>
+          <li><strong>GA4 receives an event</strong>I test it in DebugView, then I use it in reports and explorations.</li>
+        </ol>
       </div>
-      <div>
-        <h3>Testing and data quality</h3>
-        <p>I test each tag with GTM Preview mode and GA4 DebugView. I check the data on a schedule, and I look for the cause when a number looks wrong.</p>
+      <div class="code-window">
+        <div class="code-bar"><span></span><span></span><span></span><b>contact.html</b></div>
+<pre><span class="c-comment">// When someone sends the contact form</span>
+dataLayer.push({
+  <span class="c-key">event</span>: <span class="c-str">'generate_lead'</span>,
+  <span class="c-key">form_id</span>: <span class="c-str">'contact-form'</span>,
+  <span class="c-key">lead_topic</span>: <span class="c-str">'site_feedback'</span>
+});</pre>
+        <p class="code-caption">Real code from my contact page. It sends no name, email or message.</p>
       </div>
-      <div>
-        <h3>Reporting</h3>
-        <p>I make reports in GA4 and Looker Studio with the data from this site and from the GA4 demo account. I start each report with the answer to one question.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>What I practise here</h2>
+        <p>Four skills, each tested with real data from this website.</p>
       </div>
+      <div class="bento">
+        <article class="card">
+          <div class="card-visual"><svg viewBox="0 0 240 110" aria-hidden="true">
+  <rect x="10" y="14" width="96" height="30" rx="15" fill="#292966" stroke="#5C5C99"/>
+  <text x="58" y="34" text-anchor="middle" fill="#CCCCFF" font-size="12" font-family="Manrope, Arial" font-weight="700">Trigger</text>
+  <rect x="134" y="14" width="96" height="30" rx="15" fill="#CCCCFF"/>
+  <text x="182" y="34" text-anchor="middle" fill="#18183F" font-size="12" font-family="Manrope, Arial" font-weight="700">Tag</text>
+  <path d="M108 29 H130" stroke="#A3A3CC" stroke-width="2"/><path d="M126 24 L132 29 L126 34" fill="none" stroke="#A3A3CC" stroke-width="2"/>
+  <rect x="72" y="66" width="96" height="30" rx="15" fill="none" stroke="#5C5C99" stroke-dasharray="4 4"/>
+  <text x="120" y="86" text-anchor="middle" fill="#B4B4DB" font-size="12" font-family="Manrope, Arial" font-weight="700">Variable</text>
+  <path d="M120 64 V48" stroke="#A3A3CC" stroke-width="2"/>
+</svg></div>
+          <span class="label">Tracking</span>
+          <h3>Tags, triggers and variables</h3>
+          <p>I plan the events first. Then I build them in Google Tag Manager and send them to GA4.</p>
+        </article>
+        <article class="card">
+          <div class="card-visual"><svg viewBox="0 0 240 110" aria-hidden="true">
+  <g font-family="Manrope, Arial" font-size="12" font-weight="700">
+    <rect x="14" y="10" width="212" height="26" rx="8" fill="#191940" stroke="#2E2E66"/>
+    <path d="M26 23 l5 5 l9 -10" fill="none" stroke="#CCCCFF" stroke-width="2.5"/><text x="52" y="27" fill="#F1F1FF">Fires on the correct action</text>
+    <rect x="14" y="42" width="212" height="26" rx="8" fill="#191940" stroke="#2E2E66"/>
+    <path d="M26 55 l5 5 l9 -10" fill="none" stroke="#CCCCFF" stroke-width="2.5"/><text x="52" y="59" fill="#F1F1FF">Fires one time only</text>
+    <rect x="14" y="74" width="212" height="26" rx="8" fill="#191940" stroke="#2E2E66"/>
+    <path d="M26 87 l5 5 l9 -10" fill="none" stroke="#CCCCFF" stroke-width="2.5"/><text x="52" y="91" fill="#F1F1FF">Parameters have values</text>
+  </g>
+</svg></div>
+          <span class="label">Testing</span>
+          <h3>One tag at a time</h3>
+          <p>I test each tag with GTM Preview mode and GA4 DebugView before I publish a new version.</p>
+        </article>
+        <article class="card">
+          <div class="card-visual"><svg viewBox="0 0 240 110" aria-hidden="true">
+  <path d="M14 96 H226" stroke="#2E2E66"/>
+  <polyline points="14,62 44,56 74,60 104,52 134,58 164,92 194,54 226,50" fill="none" stroke="#A3A3CC" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="164" cy="92" r="6" fill="#CCCCFF"/>
+  <text x="150" y="96" text-anchor="end" fill="#CCCCFF" font-size="11" font-family="Manrope, Arial" font-weight="700">Why?</text>
+</svg></div>
+          <span class="label">Data quality</span>
+          <h3>Checks on a schedule</h3>
+          <p>I check my data each week, and I look for the root cause when a number looks wrong.</p>
+        </article>
+        <article class="card">
+          <div class="card-visual"><svg viewBox="0 0 240 110" aria-hidden="true">
+  <path d="M14 100 H226" stroke="#2E2E66"/>
+  <rect x="24" y="40" width="32" height="60" rx="5" fill="#5C5C99"/>
+  <rect x="68" y="56" width="32" height="44" rx="5" fill="#5C5C99"/>
+  <rect x="112" y="22" width="32" height="78" rx="5" fill="#CCCCFF"/>
+  <rect x="156" y="64" width="32" height="36" rx="5" fill="#5C5C99"/>
+  <rect x="200" y="76" width="20" height="24" rx="5" fill="#5C5C99"/>
+</svg></div>
+          <span class="label">Reporting</span>
+          <h3>Answers, not only numbers</h3>
+          <p>I make reports in GA4 and Looker Studio. Each one starts with the answer to one question.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Questions about this site</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Why did you build this website?</summary>
+          <p>To practise web analytics with real data. I plan the tracking, build it in Google Tag Manager, test it, and then report on the data.</p>
+        </details>
+        <details>
+          <summary>What data does this site collect?</summary>
+          <p>Google Analytics 4 collects anonymous usage data, for example which pages are viewed, the links and buttons that are clicked, and the type of device. The site does not collect names or email addresses.</p>
+        </details>
+        <details>
+          <summary>Is the contact form real?</summary>
+          <p>It is a practice form. It does not send your message to anyone. It only sends an event called generate_lead, so that I can practise form tracking.</p>
+        </details>
+        <details>
+          <summary>Which tools do you use?</summary>
+          <p>Google Tag Manager, Google Analytics 4, Looker Studio, BigQuery and Excel. The site itself is free hosting on GitHub Pages.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <h2>See how I track <span class="grad">this website</span></h2>
+      <p>My method, step by step, from the first question to the report.</p>
+      <a class="btn" id="cta-guide" href="guide.html">Read my tracking guide</a>
     </section>
   </main>
 
   <footer>
-    <p>This site uses analytics for practice. Find me on
-      <a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a> and
-      <a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a>.</p>
+    <div class="foot">
+      <div>
+        <a class="logo" href="index.html"><img src="images/marina.jpg" alt="">Marina V. Analytics Lab</a>
+        <p>A test website where I learn tracking with Google Tag Manager and GA4, and reporting with Looker Studio.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Find me</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/marina-volkaert" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/MarinaVanalyst" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot-note">This site uses Google Tag Manager and Google Analytics 4 for practice. It collects anonymous usage data, such as the pages viewed and the links clicked. It does not collect names or email addresses.</p>
   </footer>
 </body>
 </html>
